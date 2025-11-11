@@ -1,0 +1,26 @@
+<shop>
+    <shop>
+        <id sr="1">11</id> 
+        <Name>Samsung</Name>
+        <Unitprice>35000</Unitprice>
+        <Stock>50</Stock>
+        <Status>1</Status>
+
+    </shop>
+    <shop>
+        <id sr="2">20</id> 
+        <Name>HTC</Name>
+        <Unitprice>65300</Unitprice>
+        <Stock>35</Stock>
+        <Status>0</Status>
+
+    </shop>
+    <shop>
+        <id sr="3">23</id> 
+        <Name>Nokia</Name>
+        <Unitprice>25100</Unitprice>
+        <Stock>100</Stock>
+        <Status>1</Status>
+
+    </shop>
+</shop>
