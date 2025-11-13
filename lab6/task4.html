@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Question 4</title>
+  <script>
+    function validateForm() {
+      var dd = document.getElementById("day").value.trim();
+      var mm = document.getElementById("month").value.trim();
+      var yyyy = document.getElementById("year").value.trim();
+      var message = document.getElementById("message");
+
+      // Check empty fields
+      if (dd === "" || mm === "" || yyyy === "") {
+        message.style.color = "red";
+        message.innerHTML = "All date fields must be filled!";
+        return false;
+      }
+
+      // Convert to numbers
+      var day = parseInt(dd);
+      var month = parseInt(mm);
+      var year = parseInt(yyyy);
+
+      // Validate ranges
+      if (isNaN(day) || day < 1 || day > 31) {
+        message.style.color = "red";
+        message.innerHTML = "Day must be a valid number (1–31)!";
+        return false;
+      }
+      if (isNaN(month) || month < 1 || month > 12) {
+        message.style.color = "red";
+        message.innerHTML = "Month must be a valid number (1–12)!";
+        return false;
+      }
+      if (isNaN(year) || year < 1900 || year > 2016) {
+        message.style.color = "red";
+        message.innerHTML = "Year must be between 1900 and 2016!";
+        return false;
+      }
+
+      // If all valid
+      message.style.color = "green";
+      message.innerHTML = "Date is valid!";
+      return false; // keep message visible
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="return validateForm()">
+    <fieldset style="width: 260px;">
+      <legend>Date of Birth</legend>
+      <label>DD:</label>
+      <input type="text" id="day" size="2">
+      <label>MM:</label>
+      <input type="text" id="month" size="2">
+      <label>YYYY:</label>
+      <input type="text" id="year" size="4">
+    </fieldset><br>
+    <input type="submit" value="Submit">
+  </form>
+  <p id="message"></p>
+</body>
+</html>

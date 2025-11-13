@@ -1,3 +1,4 @@
+<task0>
 <shop>
     <shop>
         <id sr="1">11</id> 
@@ -24,3 +25,54 @@
 
     </shop>
 </shop>
+
+<admission>
+    <admission>
+        <no sr="1">23</no> 
+        <Name>John Carter</Name>
+        <admission>26-12-2015</admission>
+
+    </admission>
+    <admission>
+        <no sr="2">29</no> 
+        <Name>Bob Marshal</Name>
+        <admission>13-01-1999</admission>
+
+    </admission>
+    <admission>
+        <no sr="3">35</no> 
+        <Name>Clark Kent</Name>
+        <admission>17-06-2005</admission>
+
+    </admission>
+</admission>
+
+<employee>
+    <employee>
+        <id sr="1">1</id> 
+        <Name>John Doe</Name>
+        <Address>H# 38,R#3,Banani,Dhaka</Address>
+        <Department>Sales</Department>
+        <Salary>$20000</Salary>
+
+    </employee>
+    <employee>
+        <id sr="2">2</id> 
+        <Name>Mark Zuckerberg</Name>
+        <Address>Flat#A/1,H# 20,R#18,Mirpur,Dhaka</Address>
+        <Department>Accounts</Department>
+        <Salary>$12000</Salary>
+
+    </employee>
+    <employee>
+        <id sr="3">3</id> 
+        <Name>Ala Voski</Name>
+        <Address>H# 38,R#3,Motijheel</Address>
+        <Department>Human Resource</Department>
+        <Salary>$30000</Salary>
+
+    </employee>
+</employee>
+
+</task0>
+
