@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Name</title>
+    <script>
+        function validateName() {
+            let name = document.getElementById("fullname").value.trim();
+            let error = document.getElementById("error");
+
+            if (name === "") {
+                error.innerHTML = "Name cannot be empty!";
+                return false;
+            }
+
+            let firstChar = name.charAt(0);
+            if (!((firstChar >= 'A' && firstChar <= 'Z') || (firstChar >= 'a' && firstChar <= 'z'))) {
+                error.innerHTML = "Name must start with a letter!";
+                return false;
+            }
+
+            for (let i = 0; i < name.length; i++) {
+                let ch = name.charAt(i);
+                if (!(
+                    (ch >= 'A' && ch <= 'Z') ||
+                    (ch >= 'a' && ch <= 'z') ||
+                    ch === '.' ||
+                    ch === '-' ||
+                    ch === ' '
+                )) {
+                    error.innerHTML = "Invalid character: " + ch;
+                    return false;
+                }
+            }
+
+            let words = name.split(" ").filter(word => word.length > 0);
+            if (words.length < 2) {
+                error.innerHTML = "Name must contain at least two words!";
+                return false;
+            }
+
+            error.style.color = "green";
+            error.innerHTML = "Valid name!";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Name</h2>
+    <form onsubmit="return validateName()">
+        <label>Full Name:</label>
+        <input type="text" id="fullname" placeholder="">
+        <p id="error" style="color:red;"></p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

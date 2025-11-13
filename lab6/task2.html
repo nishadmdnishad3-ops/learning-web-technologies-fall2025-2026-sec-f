@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Email</title>
+<script>
+function validateEmail() {
+    var email = document.getElementById("email").value.trim();
+    var msg = document.getElementById("msg");
+
+    if (email == "") {
+        msg.style.color = "red";
+        msg.innerHTML = "Email cannot be empty";
+        return false;
+    }
+
+    var atPos = email.indexOf("@");
+    var dotPos = email.lastIndexOf(".");
+
+    if (atPos < 1 || dotPos < atPos + 2 || dotPos >= email.length - 2) {
+        msg.style.color = "red";
+        msg.innerHTML = "Invalid email!";
+        return false;
+    }
+
+    msg.style.color = "green";
+    msg.innerHTML = "Valid Email Address";
+    return true;
+}
+</script>
+</head>
+<body>
+
+<h2>Email</h2>
+<form onsubmit="return validateEmail()">
+    <label>Email:</label>
+    <input type="text" id="email" placeholder="">
+
+    <button type="button" 
+        style="border:1px solid blue; color:blue; background:white; font-weight:bold; 
+               width:18px; height:18px; border-radius:3px; cursor:pointer;"
+        title="hint: sample@example.com">i</button>
+
+    <br><br>
+    <p id="msg"></p>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
