@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Input Form</title>
+</head>
+<body>
+ 
+    <input type="text" id="studentInput" placeholder="Enter Student Details">
+
+    <select id="studentCategory">
+        <option value="">Select Category</option>
+        <option>Name</option>
+        <option>Id</option>
+        <option>Age</option>
+        <option>Phone</option>
+        <option>Email</option>
+        <option>Address</option>
+    </select>
+ 
+    <button id="addBtn">Add</button>
+ 
+    <div id="outputArea" style="margin-top:20px; display:none;"></div>
+ 
+    <br><br>
+ 
+    <button id="saveBtn">Save</button>
+    <span id="errorMsg" style="color:red; margin-left:10px; font-weight:bold;"></span>
+ 
+    <br><br>
+    <div id="finalOutput"
+         style="width:420px; min-height:40px; border:1px solid black; padding:10px;">
+    </div>
+ 
+    <script>
+        const outputArea = document.getElementById("outputArea");
+ 
+        const categoryBox = document.createElement("div");
+        categoryBox.style.width = "200px";
+        categoryBox.style.height = "34px";
+        categoryBox.style.border = "1px solid black";
+        categoryBox.style.display = "inline-block";
+        categoryBox.style.verticalAlign = "top";
+        categoryBox.style.padding = "5px";
+ 
+        const nameBox = document.createElement("input");
+        nameBox.style.height = "40px";
+        nameBox.style.width = "200px";
+        nameBox.style.marginRight = "10px";
+        nameBox.readOnly = true;
+ 
+        document.getElementById("addBtn").addEventListener("click", function () {
+            const studentValue = document.getElementById("studentInput").value;
+            const categoryValue = document.getElementById("studentCategory").value;
+ 
+            if (studentValue === "" || categoryValue === "") {
+                alert("Please enter student details & category first!");
+                return;
+            }
+ 
+            outputArea.style.display = "block";
+ 
+            if (outputArea.children.length === 0) {
+                outputArea.appendChild(nameBox);
+                outputArea.appendChild(categoryBox);
+            }
+ 
+            categoryBox.textContent = categoryValue;
+            nameBox.value = studentValue;
+ 
+            document.getElementById("studentInput").value = "";
+        });
+ 
+        document.getElementById("saveBtn").addEventListener("click", function () {
+            const finalOutput = document.getElementById("finalOutput");
+            const errorMsg = document.getElementById("errorMsg");
+ 
+            const savedStudent = nameBox.value;
+            const savedCategory = categoryBox.textContent;
+ 
+            if (savedStudent === "" || savedCategory === "") {
+                errorMsg.textContent = "Please enter the data properly.";
+                finalOutput.textContent = "";
+            } else {
+                errorMsg.textContent = "";
+                finalOutput.textContent = savedStudent + " - " + savedCategory;
+            }
+        });
+    </script>
+ 
+</body>
+</html>
