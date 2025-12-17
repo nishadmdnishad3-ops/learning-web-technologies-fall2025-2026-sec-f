@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Doctor Portal Smart Sidebar</h2>
+
+<!-- Sidebar Container -->
+<div id="sidebar"></div>
+
+<script>
+// Menu items with usage count
+let menuItems = [
+    { name: "Dashboard", count: 0 },
+    { name: "Patient Profiles", count: 0 },
+    { name: "Appointments", count: 0 },
+    { name: "Prescriptions", count: 0 },
+    { name: "Lab Results", count: 0 },
+    { name: "Messages", count: 0 }
+];
+
+// Function to display sidebar
+function showMenu() {
+    let side = document.getElementById("sidebar");
+    side.innerHTML = "";  // clear old list
+
+    menuItems.forEach(item => {
+        // Highlight more used items
+        let style = item.count > 3 ? "font-weight:bold; color:blue;" : "";
+
+        let btn = document.createElement("button");
+        btn.style = style + "display:block; margin:5px; padding:5px;";
+        btn.innerText = item.name + " (" + item.count + ")";
+        
+        // When clicked → increase count → reorder → refresh
+        btn.onclick = function () {
+            item.count++;
+            reorderMenu();
+            showMenu();
+            alert(item.name + " opened!");
+        };
+
+        side.appendChild(btn);
+    });
+}
+
+// Function to reorder by highest count
+function reorderMenu() {
+    menuItems.sort((a, b) => b.count - a.count);
+}
+
+// First display
+showMenu();
+</script>
+
+</body>
+</html>

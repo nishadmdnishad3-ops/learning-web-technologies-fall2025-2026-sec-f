@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Marks Entry</h2>
+
+Name: <input type="text" id="name"><br><br>
+Marks: <input type="number" id="marks"><br><br>
+
+<button onclick="addStudent()">Submit</button>
+
+<br><br>
+
+<table border="1" id="table">
+    <tr>
+        <th>Name</th>
+        <th>Marks</th>
+    </tr>
+</table>
+
+<script>
+function addStudent() {
+
+    let name = document.getElementById("name").value.trim();
+    let marks = document.getElementById("marks").value.trim();
+
+    // Validation
+    if (name === "" || !/^[A-Za-z]+$/.test(name)) {
+        alert("Name must contain only letters and cannot be empty.");
+        return;
+    }
+
+    marks = Number(marks);
+    if (isNaN(marks) || marks < 0 || marks > 100) {
+        alert("Marks must be a number between 0 and 100.");
+        return;
+    }
+
+    // Add row to table
+    let table = document.getElementById("table");
+    let row = table.insertRow();
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+
+    cell1.innerHTML = name;
+    cell2.innerHTML = marks;
+
+    // Background color based on marks
+    if (marks >= 80) row.style.backgroundColor = "lightgreen";
+    else if (marks >= 50) row.style.backgroundColor = "lightyellow";
+    else row.style.backgroundColor = "lightcoral";
+
+    // Clear input fields
+    document.getElementById("name").value = "";
+    document.getElementById("marks").value = "";
+}
+</script>
+
+</body>
+</html>
