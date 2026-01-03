@@ -9,7 +9,7 @@
 
 <h1 class="dotted" align="center">Doctor Dashboard</h1>
 
-<form align="left" action="../Controller/doctorController.php" method="post">
+<form align="left" action="../Controller/doctordashboardController.php" method="post">
     <fieldset>
         <legend style="color: red;" align="center">Dashboard Overview</legend>
 
